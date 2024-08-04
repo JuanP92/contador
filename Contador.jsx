@@ -2,20 +2,31 @@ import React, { useState } from "react";
 
 const Contador = () => {
   const [count, setCount] = useState(0);
+  const [clicked, setClicked] = useState(false);
   return (
     <>
       <h1>Pruebas de kloyd</h1>
       <div className="card">
         <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
+          Conteo actual {count}
         </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
+        <button
+          onClick={() => {
+            setClicked((clicked) => !clicked);
+          }}
+        >
+          Haz click aquí
+        </button>
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <span
+        style={{
+          fontSize: "3rem",
+          color: clicked ? "lightgreen" : "lightpink",
+        }}
+      >
+        {clicked ? "Clieckeado" : "No clickeado"}
+      </span>
+      <p className="read-the-docs">Aprendiendo con kloyd</p>
     </>
   );
 };
